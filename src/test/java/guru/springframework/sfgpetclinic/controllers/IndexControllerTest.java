@@ -1,5 +1,6 @@
 package guru.springframework.sfgpetclinic.controllers;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
@@ -25,6 +26,7 @@ class IndexControllerTest {
 	@Test
 	void testIndex() {
 		assertEquals("index", indexController.index(), () -> "Wrong View");
+		assertThat(indexController.index()).isEqualTo("index");
 	}
 
 	@Test
