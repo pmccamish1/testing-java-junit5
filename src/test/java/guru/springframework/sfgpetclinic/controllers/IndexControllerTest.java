@@ -1,6 +1,8 @@
 package guru.springframework.sfgpetclinic.controllers;
 
+
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
 import java.time.Duration;
 
@@ -42,6 +44,16 @@ class IndexControllerTest {
 			Thread.sleep(2000);
 			System.out.println("testTimeOutPrempt");
 		});
+	}
+	
+	@Test
+	void TestAssumptionTrue() {
+		assumeTrue("GURU".equalsIgnoreCase(System.getenv("GURU_RUNTIME")));
+	}	
+	
+	@Test
+	void TestAssumptionTrueAssumptionIsTrue() {
+		assumeTrue("GURU".equalsIgnoreCase("GURU"));
 	}
 }
 
