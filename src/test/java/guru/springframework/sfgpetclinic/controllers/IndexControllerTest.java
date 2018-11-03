@@ -1,6 +1,5 @@
 package guru.springframework.sfgpetclinic.controllers;
 
-
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
@@ -9,6 +8,11 @@ import java.time.Duration;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.condition.EnabledIfEnvironmentVariable;
+import org.junit.jupiter.api.condition.EnabledOnJre;
+import org.junit.jupiter.api.condition.EnabledOnOs;
+import org.junit.jupiter.api.condition.JRE;
+import org.junit.jupiter.api.condition.OS;
 
 class IndexControllerTest {
 	IndexController indexController;
@@ -55,5 +59,33 @@ class IndexControllerTest {
 	void TestAssumptionTrueAssumptionIsTrue() {
 		assumeTrue("GURU".equalsIgnoreCase("GURU"));
 	}
+	
+	@Test
+	@EnabledOnOs(OS.MAC)
+	void testOnMac() {
+		
+	}
+	
+	@EnabledOnOs(OS.WINDOWS) 
+	@Test
+	void testOnWindows() {
+	}
+	
+	@EnabledOnJre(JRE.JAVA_8)
+	@Test
+	void testOnJre8() {
+		
+	}
+	
+	@EnabledOnJre(JRE.JAVA_11)
+	@Test
+	void testOnJre11() {
+		
+	}
+	
+	@EnabledIfEnvironmentVariable(named = "HOMEDRIVE", matches = "C:")
+	@Test
+	void testIfEnv() {
+		
+	}
 }
-
